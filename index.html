@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV</title>
+    <title>Zayniddinov Azizkhon - CV</title>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -34,136 +34,14 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             border-radius: 10px;
             overflow: hidden;
-            border-top: 5px solid var(--accent-color); /* Kept accent color at top */
+            border-top: 6px solid var(--primary-color);
         }
 
-        /* Removed header styles as requested */
-
-        .content {
-            padding: 40px; /* Increased top padding since header is gone */
+        header {
+            padding: 50px 40px 10px 40px;
         }
 
-        section {
-            margin-bottom: 30px;
-        }
-
-        h3 {
+        header h1 {
+            font-size: 3rem;
             color: var(--primary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-
-        p {
-            margin-bottom: 15px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-category h4 {
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        ul {
-            list-style-type: none;
-        }
-
-        ul li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
-        }
-
-        ul li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .tag {
-            background-color: #ecf0f1;
-            color: var(--primary-color);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        @media (max-width: 600px) {
-            .content {
-                padding: 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <div class="content">
-            <section>
-                <h3>About Me</h3>
-                <p>I am a 19-year-old Computer Engineering student with a deep-rooted passion for mathematics, information security, and software development. Known for my curiosity, calmness, and friendly demeanor, I thrive in environments that challenge me to solve complex problems and learn continuously. Whether I am troubleshooting code, analyzing networks, or tackling advanced mathematical proofs, I approach every challenge with analytical rigor.</p>
-            </section>
-
-            <section>
-                <h3>Education</h3>
-                <ul>
-                    <li>
-                        <strong>Turin Polytechnic University in Tashkent</strong><br>
-                        <em>Major:</em> Computer Engineering<br>
-                        <em>Academic Interests:</em> Linear Algebra, Calculus, Cryptography
-                    </li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>Cybersecurity & Extracurriculars</h3>
-                <ul>
-                    <li>Active member of the <strong>Turin Cybersecurity Club</strong>.</li>
-                    <li>Experienced participant in various Capture The Flag (CTF) competitions and cybersecurity-related events.</li>
-                    <li>Practical experience with network reconnaissance and utilizing scanning tools such as Nmap.</li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>Projects & Development</h3>
-                <ul>
-                    <li><strong>Emerald Empire:</strong> Frontend web development and deployment using React and Vite frameworks.</li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>Technical Skills</h3>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4>Programming & Scripting</h4>
-                        <div class="tags">
-                            <span class="tag">Python (Confident)</span>
-                            <span class="tag">C (Beginner)</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Tools & Systems</h4>
-                        <div class="tags">
-                            <span class="tag">Linux OS</span>
-                            <span class="tag">Nmap</span>
-                            <span class="tag">CTF Platforms</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            font-weight: 700;
