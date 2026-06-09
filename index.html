@@ -39,29 +39,35 @@
         header {
             background-color: var(--primary-color);
             color: var(--white);
-            padding: 40px 20px;
+            padding: 50px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
             border-bottom: 5px solid var(--accent-color);
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid var(--white);
-            margin-bottom: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 5px;
+            font-size: 2.6rem;
+            margin-bottom: 10px;
+            width: 100%;
         }
 
         header h2 {
             font-size: 1.2rem;
             font-weight: 300;
             color: #bdc3c7;
+            width: 100%;
         }
 
         .content {
@@ -136,6 +142,10 @@
             header h1 {
                 font-size: 2rem;
             }
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
         }
     </style>
 </head>
@@ -160,7 +170,7 @@
                     <li>
                         <strong>Turin Polytechnic University in Tashkent</strong><br>
                         <em>Major:</em> Computer Engineering<br>
-                        <em>Academic Interests:</em> Linear Algebra, Calculus, Cryptogtaphy
+                        <em>Academic Interests:</em> Linear Algebra, Calculus, Cryptography
                     </li>
                 </ul>
             </section>
