@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zayniddinov Azizkhon - CV</title>
+    <title>CV</title>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -34,44 +34,13 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             border-radius: 10px;
             overflow: hidden;
+            border-top: 5px solid var(--accent-color); /* Kept accent color at top */
         }
 
-        header {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 50px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            border-bottom: 5px solid var(--accent-color);
-        }
-
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--white);
-            margin-bottom: 25px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
-        header h1 {
-            font-size: 2.6rem;
-            margin-bottom: 10px;
-            width: 100%;
-        }
-
-        header h2 {
-            font-size: 1.2rem;
-            font-weight: 300;
-            color: #bdc3c7;
-            width: 100%;
-        }
+        /* Removed header styles as requested */
 
         .content {
-            padding: 30px 40px;
+            padding: 40px; /* Increased top padding since header is gone */
         }
 
         section {
@@ -139,25 +108,12 @@
             .content {
                 padding: 20px;
             }
-            header h1 {
-                font-size: 2rem;
-            }
-            .profile-img {
-                width: 150px;
-                height: 150px;
-            }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <header>
-            <img src="my_photo.jpg" alt="Zayniddinov Azizkhon" class="profile-img">
-            <h1>Zayniddinov Azizkhon</h1>
-            <h2>Computer Engineering Student | Information Security Enthusiast</h2>
-        </header>
-
         <div class="content">
             <section>
                 <h3>About Me</h3>
@@ -211,26 +167,3 @@
                     </div>
                 </div>
             </section>
-
-            <section>
-                <h3>Languages</h3>
-                <ul>
-                    <li><strong>Uzbek:</strong> Native</li>
-                    <li><strong>Russian:</strong> Native</li>
-                    <li><strong>English:</strong> Fluent (IELTS 7.5)</li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>Hobbies & Interests</h3>
-                <ul>
-                    <li>Playing the guitar</li>
-                    <li>Going to the gym</li>
-                    <li>Exploring advanced mathematics</li>
-                </ul>
-            </section>
-        </div>
-    </div>
-
-</body>
-</html>
