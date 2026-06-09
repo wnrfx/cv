@@ -34,26 +34,42 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             border-radius: 10px;
             overflow: hidden;
-            border-top: 6px solid var(--primary-color);
         }
 
         header {
-            padding: 50px 40px 10px 40px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-color);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--white);
+            margin-bottom: 15px;
         }
 
         header h1 {
-            font-size: 3rem;
-            color: var(--accent-color); /* Changed to the prominent blue accent color */
-            font-weight: 700;
-            letter-spacing: -1px;
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        header h2 {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #bdc3c7;
         }
 
         .content {
-            padding: 20px 40px 40px 40px;
+            padding: 30px 40px;
         }
 
         section {
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         h3 {
@@ -62,8 +78,6 @@
             padding-bottom: 5px;
             margin-bottom: 15px;
             font-size: 1.4rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         p {
@@ -116,14 +130,11 @@
         }
 
         @media (max-width: 600px) {
-            header {
-                padding: 30px 20px 5px 20px;
-            }
-            header h1 {
-                font-size: 2.2rem;
-            }
             .content {
                 padding: 20px;
+            }
+            header h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -132,7 +143,9 @@
 
     <div class="container">
         <header>
+            <img src="my_photo.jpg" alt="Zayniddinov Azizkhon" class="profile-img">
             <h1>Zayniddinov Azizkhon</h1>
+            <h2>Computer Engineering Student | Information Security Enthusiast</h2>
         </header>
 
         <div class="content">
@@ -147,7 +160,7 @@
                     <li>
                         <strong>Turin Polytechnic University in Tashkent</strong><br>
                         <em>Major:</em> Computer Engineering<br>
-                        <em>Academic Interests:</em> Linear Algebra, Calculus, Cryptography
+                        <em>Academic Interests:</em> Linear Algebra, Calculus, Real Analysis, Discrete Math
                     </li>
                 </ul>
             </section>
@@ -175,7 +188,9 @@
                         <h4>Programming & Scripting</h4>
                         <div class="tags">
                             <span class="tag">Python (Confident)</span>
+                            <span class="tag">Bash (Confident)</span>
                             <span class="tag">C (Beginner)</span>
+                            <span class="tag">React</span>
                         </div>
                     </div>
                     <div class="skill-category">
@@ -183,6 +198,7 @@
                         <div class="tags">
                             <span class="tag">Linux OS</span>
                             <span class="tag">Nmap</span>
+                            <span class="tag">Vite</span>
                             <span class="tag">CTF Platforms</span>
                         </div>
                     </div>
@@ -201,7 +217,7 @@
             <section>
                 <h3>Hobbies & Interests</h3>
                 <ul>
-                    <li>Playing the guitar</li>
+                    <li>Playing the bass guitar</li>
                     <li>Going to the gym</li>
                     <li>Exploring advanced mathematics</li>
                 </ul>
