@@ -1,227 +1,719 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zayniddinov Azizkhon - CV</title>
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #34495e;
-            --accent-color: #3498db;
-            --text-color: #333;
-            --bg-color: #f4f7f6;
-            --white: #ffffff;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zayniddinov Azizkhon — CV</title>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
+<style>
+  /* ===========================================================
+     DESIGN TOKENS
+     One accent color (teal) does all the work. The dark
+     "terminal" bands bookend a clean, light document body —
+     a nod to the cybersecurity / CTF world without overdoing it.
+     =========================================================== */
+  :root{
+    --bg:        #F5F7FA;
+    --surface:   #FFFFFF;
+    --ink:       #101828;
+    --muted:     #5B6472;
+    --border:    #E6E9EF;
 
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: var(--white);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
+    --accent:      #14B8A6;
+    --accent-dark: #0D9488;
+    --accent-soft: rgba(20, 184, 166, 0.12);
 
-        header {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 5px solid var(--accent-color);
-        }
+    --terminal-bg:   #0B1220;
+    --terminal-line: rgba(255,255,255,0.08);
+    --terminal-text: #E3FBF6;
 
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--white);
-            margin-bottom: 15px;
-        }
+    --radius-lg: 18px;
+    --radius-md: 12px;
+    --shadow: 0 10px 30px -10px rgba(16,24,40,0.14);
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 5px;
-        }
+    --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+    --font-body:    'Inter', 'Segoe UI', sans-serif;
+    --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+  }
 
-        header h2 {
-            font-size: 1.2rem;
-            font-weight: 300;
-            color: #bdc3c7;
-        }
+  *{ box-sizing: border-box; margin:0; padding:0; }
 
-        .content {
-            padding: 30px 40px;
-        }
+  html{ scroll-behavior: smooth; }
 
-        section {
-            margin-bottom: 30px;
-        }
+  body{
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
 
-        h3 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
+  img{ max-width:100%; display:block; }
 
-        p {
-            margin-bottom: 15px;
-        }
+  /* Thin accent line pinned to the very top of the page */
+  .top-accent{
+    position:fixed; top:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-dark));
+    z-index:1100;
+  }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
+  /* ===========================================================
+     HERO / TERMINAL HEADER
+     =========================================================== */
+  .hero{
+    position:relative;
+    background: var(--terminal-bg);
+    color: var(--terminal-text);
+    padding: 68px 24px 58px;
+    text-align:center;
+    overflow:hidden;
+  }
 
-        .skill-category h4 {
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
+  /* faint grid texture — subtle, not a full "hacker" theme */
+  .hero::before{
+    content:'';
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 0%, transparent 75%);
+    pointer-events:none;
+  }
 
-        ul {
-            list-style-type: none;
-        }
+  .hero-inner{ position:relative; max-width:640px; margin:0 auto; }
 
-        ul li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
-        }
+  .avatar-wrap{ display:inline-block; margin-bottom:22px; }
 
-        ul li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-weight: bold;
-        }
+  .profile-img{
+    width:190px; height:190px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid var(--terminal-bg);
+    box-shadow: 0 0 0 3px var(--accent);
+  }
 
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
+  .terminal-line{
+    font-family: var(--font-mono);
+    font-size: 0.92rem;
+    color: var(--terminal-text);
+    opacity:0.9;
+    margin-bottom: 18px;
+    min-height: 1.3em;
+  }
+  .terminal-line .prompt{ color: var(--accent); }
+  .terminal-line .colon{ color: rgba(227,251,246,0.55); margin-right:6px; }
+  .cursor{
+    display:inline-block;
+    color: var(--accent);
+    margin-left:1px;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
 
-        .tag {
-            background-color: #ecf0f1;
-            color: var(--primary-color);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
+  .hero h1{
+    font-family: var(--font-display);
+    font-weight:700;
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    letter-spacing: -0.01em;
+  }
 
-        @media (max-width: 600px) {
-            .content {
-                padding: 20px;
-            }
-            header h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+  .hero h2{
+    font-weight:400;
+    font-size: 1.05rem;
+    color: rgba(227,251,246,0.65);
+    margin-top: 8px;
+  }
+
+  /* ===========================================================
+     MAIN LAYOUT
+     =========================================================== */
+  main.container{
+    max-width: 980px;
+    margin: -28px auto 0;
+    padding: 0 24px 8px;
+    position:relative;
+    z-index:2;
+  }
+
+  .card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    padding: 36px 40px;
+    margin-bottom: 26px;
+  }
+
+  /* two-column grid wrapper used for Education+Languages and
+     Cybersecurity+Projects — collapses to one column on mobile */
+  .grid-2{
+    display:grid;
+    gap: 26px;
+    margin-bottom: 26px;
+  }
+  .grid-2 > .card{ margin-bottom:0; }
+  .grid-2.split-wide{ grid-template-columns: 1.6fr 1fr; }
+  .grid-2.split-even{ grid-template-columns: 1fr 1fr; }
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom: 20px;
+  }
+  .section-head .tag-prompt{
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-weight:600;
+    font-size: 1rem;
+  }
+  .section-head h3{
+    font-family: var(--font-display);
+    font-weight:600;
+    font-size: 1.3rem;
+    color: var(--ink);
+  }
+
+  p{ color: var(--ink); margin-bottom: 4px; }
+  .lede{ color:#333; font-size:1.02rem; }
+
+  /* generic reset: no bullets anywhere unless opted in via .bullet-list */
+  ul{ list-style:none; }
+
+  .bullet-list{ display:flex; flex-direction:column; gap:10px; }
+  .bullet-list li{
+    position:relative;
+    padding-left:22px;
+    font-size:0.97rem;
+    color:#2c333d;
+  }
+  .bullet-list li::before{
+    content:'▹';
+    position:absolute; left:0; top:0;
+    color: var(--accent);
+    font-weight:700;
+  }
+
+  /* ----- Education entry (label/value pairs) ----- */
+  .edu-entry{}
+  .edu-school{
+    font-family: var(--font-display);
+    font-weight:600;
+    font-size: 1.05rem;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+  .edu-meta div{ margin-bottom:10px; }
+  .edu-meta dt{
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom:3px;
+  }
+  .edu-meta dd{ font-size:0.95rem; color: var(--ink); }
+
+  /* ----- Languages ----- */
+  .lang-list{ display:flex; flex-direction:column; gap:10px; }
+  .lang-item{
+    display:flex; justify-content:space-between; align-items:center;
+    padding: 11px 16px;
+    background: var(--bg);
+    border:1px solid var(--border);
+    border-radius: 10px;
+  }
+  .lang-name{
+    font-family: var(--font-display);
+    font-weight:600;
+    font-size: 0.97rem;
+  }
+  .lang-level{
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  .ielts-trigger{
+    background:none;
+    border:none;
+    padding: 0 2px;
+    font: inherit;
+    font-family: var(--font-mono);
+    color: var(--accent-dark);
+    font-weight:600;
+    cursor:pointer;
+    border-bottom: 1px dashed var(--accent);
+    border-radius: 3px;
+    transition: background .2s ease, color .2s ease;
+  }
+  .ielts-trigger:hover,
+  .ielts-trigger:focus-visible{
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+  }
+  .ielts-trigger:focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ----- Skills / Hobbies tag clouds ----- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+  .skill-category h4{
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight:600;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .tags{ display:flex; flex-wrap:wrap; gap:10px; }
+  .tag{
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--ink);
+    padding: 7px 14px;
+    border-radius: 999px;
+    transition: transform .18s ease, border-color .18s ease, color .18s ease;
+  }
+  .tag:hover{ transform: translateY(-2px); border-color: var(--accent); color: var(--accent-dark); }
+
+  .tag.outline{ background: transparent; }
+
+  /* ===========================================================
+     SCROLL REVEAL
+     =========================================================== */
+  .reveal{
+    opacity:0;
+    transform: translateY(18px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal.visible{ opacity:1; transform:translateY(0); }
+
+  /* ===========================================================
+     IELTS MODAL
+     =========================================================== */
+  .modal-overlay{
+    position:fixed; inset:0;
+    background: rgba(11,18,32,0.62);
+    backdrop-filter: blur(4px);
+    display:flex; align-items:center; justify-content:center;
+    padding: 20px;
+    opacity:0;
+    pointer-events:none;
+    transition: opacity .25s ease;
+    z-index: 1000;
+  }
+  .modal-overlay.is-open{ opacity:1; pointer-events:auto; }
+
+  .modal-card{
+    position:relative;
+    width:100%; max-width: 480px;
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 30px 28px 32px;
+    box-shadow: 0 30px 70px -16px rgba(0,0,0,0.4);
+    transform: translateY(14px) scale(0.96);
+    transition: transform .28s ease;
+  }
+  .modal-overlay.is-open .modal-card{ transform: translateY(0) scale(1); }
+
+  .modal-close{
+    position:absolute; top:14px; right:14px;
+    width:34px; height:34px;
+    border:none; border-radius:50%;
+    background: var(--bg);
+    color: var(--ink);
+    font-size:1.2rem;
+    line-height:1;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition: background .2s ease, color .2s ease;
+  }
+  .modal-close:hover{ background: var(--accent); color:#fff; }
+  .modal-close:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+
+  .modal-card h3{
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+    padding-right: 24px;
+  }
+  .modal-sub{
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+
+  .certificate-img{
+    width:100%;
+    min-height: 260px;
+    object-fit: contain;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+
+  .certificate-fallback{
+    border: 2px dashed var(--border);
+    border-radius: 10px;
+    padding: 36px 20px;
+    text-align:center;
+    color: var(--muted);
+    font-size: 0.88rem;
+    background: var(--bg);
+  }
+  .certificate-fallback svg{ margin:0 auto 12px; color: var(--muted); }
+  .certificate-fallback code{
+    font-family: var(--font-mono);
+    background: var(--surface);
+    border:1px solid var(--border);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.82rem;
+  }
+
+  /* ===========================================================
+     CONTACT FOOTER
+     =========================================================== */
+  .contact-footer{
+    background: var(--terminal-bg);
+    color: var(--terminal-text);
+    padding: 60px 24px 36px;
+    margin-top: 36px;
+  }
+  .footer-inner{ max-width: 760px; margin:0 auto; }
+
+  .footer-heading{
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+  .footer-heading .ckey{ color: rgba(227,251,246,0.5); }
+
+  .contact-grid{ display:grid; gap: 14px; margin-bottom: 32px; }
+
+  .contact-row{
+    display:flex; align-items:center; gap:14px;
+    padding: 15px 18px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--terminal-line);
+    border-radius: 12px;
+    color: var(--terminal-text);
+    text-decoration:none;
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    transition: background .2s ease, border-color .2s ease, transform .2s ease;
+  }
+  .contact-row:hover{
+    background: rgba(20,184,166,0.12);
+    border-color: var(--accent);
+    transform: translateX(4px);
+  }
+  .contact-row:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .contact-row svg{ width:20px; height:20px; flex-shrink:0; color: var(--accent); }
+  .contact-row .label{ color: rgba(227,251,246,0.5); margin-right:2px; }
+  .contact-row .value{ word-break: break-all; }
+
+  .copyright{
+    font-size: 0.76rem;
+    color: rgba(227,251,246,0.4);
+    text-align:center;
+    padding-top: 22px;
+    border-top: 1px solid var(--terminal-line);
+  }
+
+  /* ===========================================================
+     RESPONSIVE
+     =========================================================== */
+  @media (max-width: 760px){
+    .grid-2.split-wide,
+    .grid-2.split-even{ grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px){
+    .hero{ padding: 56px 20px 64px; }
+    main.container{ margin-top: -36px; padding: 0 16px 8px; }
+    .card{ padding: 26px 22px; }
+    .hero h1{ font-size: 1.7rem; }
+    .modal-card{ padding: 24px 20px 26px; }
+  }
+
+  /* ===========================================================
+     ACCESSIBILITY
+     =========================================================== */
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+    .reveal{ opacity:1; transform:none; }
+  }
+</style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <img src="my_photo.jpg" alt="Zayniddinov Azizkhon" class="profile-img">
-            <h1>Zayniddinov Azizkhon</h1>
-            <h2>Computer Engineering Student | Information Security Enthusiast</h2>
-        </header>
+  <div class="top-accent" aria-hidden="true"></div>
 
-        <div class="content">
-            <section>
-                <h3>About Me</h3>
-                <p>I am a 19-year-old Computer Engineering student with a deep-rooted passion for mathematics, information security, and software development. Known for my curiosity, calmness, and friendly demeanor, I thrive in environments that challenge me to solve complex problems and learn continuously. Whether I am troubleshooting code, analyzing networks, or tackling advanced mathematical proofs, I approach every challenge with analytical rigor.</p>
-            </section>
-
-            <section>
-                <h3>Education</h3>
-                <ul>
-                    <li>
-                        <strong>Turin Polytechnic University in Tashkent</strong><br>
-                        <em>Major:</em> Computer Engineering<br>
-                        <em>Academic Interests:</em> Linear Algebra, Calculus, Cryptography 
-                    </li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>Cybersecurity & Extracurriculars</h3>
-                <ul>
-                    <li>Active member of the <strong>Turin Cybersecurity Club</strong>.</li>
-                    <li>Experienced participant in various Capture The Flag (CTF) competitions and cybersecurity-related events.</li>
-                    <li>Practical experience with network reconnaissance and utilizing scanning tools such as Nmap.</li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>Projects & Development</h3>
-                <ul>
-                    <li><strong>Emerald Empire:</strong> Frontend web development and deployment using React and Vite frameworks.</li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>Technical Skills</h3>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4>Programming & Scripting</h4>
-                        <div class="tags">
-                            <span class="tag">Python (Confident)</span>
-                            <span class="tag">C (Beginner)</span>
-                            <span class="tag">JavaScript (Beginner)</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Tools & Systems</h4>
-                        <div class="tags">
-                            <span class="tag">Linux OS</span>
-                            <span class="tag">Nmap</span>
-                            <span class="tag">CTF Platforms</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <h3>Languages</h3>
-                <ul>
-                    <li><strong>Uzbek:</strong> Native</li>
-                    <li><strong>Russian:</strong> Native</li>
-                    <li><strong>English:</strong> Fluent (IELTS 7.5)</li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>Hobbies & Interests</h3>
-                <ul>
-                    <li>Playing the guitar</li>
-                    <li>Going to the gym</li>
-                    <li>Exploring advanced mathematics</li>
-                </ul>
-            </section>
-        </div>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="avatar-wrap">
+        <img src="my_photo.jpg" alt="Zayniddinov Azizkhon" class="profile-img">
+      </div>
+      <p class="terminal-line" aria-hidden="true">
+        <span class="prompt">azizkhon@turin</span><span class="colon">:~$</span>
+        whoami<br>
+        <span id="typed-name"></span><span class="cursor">▌</span>
+      </p>
+      <h1>Zayniddinov Azizkhon</h1>
+      <h2>Computer Engineering Student · Information Security Enthusiast</h2>
     </div>
+  </header>
+
+  <main class="container">
+
+    <section class="card reveal" aria-labelledby="about-heading">
+      <div class="section-head"><span class="tag-prompt">$</span><h3 id="about-heading">About Me</h3></div>
+      <p class="lede">I am a 19-year-old Computer Engineering student with a deep-rooted passion for mathematics, information security, and software development. Known for my curiosity, calmness, and friendly demeanor, I thrive in environments that challenge me to solve complex problems and learn continuously. Whether I am troubleshooting code, analyzing networks, or tackling advanced mathematical proofs, I approach every challenge with analytical rigor.</p>
+    </section>
+
+    <div class="grid-2 split-wide">
+      <section class="card reveal" aria-labelledby="education-heading">
+        <div class="section-head"><span class="tag-prompt">$</span><h3 id="education-heading">Education</h3></div>
+        <div class="edu-entry">
+          <p class="edu-school">Turin Polytechnic University in Tashkent</p>
+          <dl class="edu-meta">
+            <div>
+              <dt>Major</dt>
+              <dd>Computer Engineering</dd>
+            </div>
+            <div>
+              <dt>Academic Interests</dt>
+              <dd>Linear Algebra, Calculus, Cryptography</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="card reveal" aria-labelledby="languages-heading">
+        <div class="section-head"><span class="tag-prompt">$</span><h3 id="languages-heading">Languages</h3></div>
+        <ul class="lang-list">
+          <li class="lang-item">
+            <span class="lang-name">Uzbek</span>
+            <span class="lang-level">Native</span>
+          </li>
+          <li class="lang-item">
+            <span class="lang-name">Russian</span>
+            <span class="lang-level">Native</span>
+          </li>
+          <li class="lang-item">
+            <span class="lang-name">English</span>
+            <span class="lang-level">Fluent ·
+              <button type="button" class="ielts-trigger" id="ielts-trigger" aria-haspopup="dialog">IELTS 7.5</button>
+            </span>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="grid-2 split-even">
+      <section class="card reveal" aria-labelledby="cyber-heading">
+        <div class="section-head"><span class="tag-prompt">$</span><h3 id="cyber-heading">Cybersecurity &amp; Extracurriculars</h3></div>
+        <ul class="bullet-list">
+          <li>Active member of the <strong>Turin Cybersecurity Club</strong>.</li>
+          <li>Experienced participant in various Capture The Flag (CTF) competitions and cybersecurity-related events.</li>
+          <li>Practical experience with network reconnaissance and utilizing scanning tools such as Nmap.</li>
+        </ul>
+      </section>
+
+      <section class="card reveal" aria-labelledby="projects-heading">
+        <div class="section-head"><span class="tag-prompt">$</span><h3 id="projects-heading">Projects &amp; Development</h3></div>
+        <ul class="bullet-list">
+          <li><strong>Skillwork.uz:</strong> Cybersecurity Specialist at this startup.</li>
+          <li><strong>Emerald Empire:</strong> Frontend web development and deployment using React and Vite frameworks.</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="card reveal" aria-labelledby="skills-heading">
+      <div class="section-head"><span class="tag-prompt">$</span><h3 id="skills-heading">Technical Skills</h3></div>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h4>Programming &amp; Scripting</h4>
+          <div class="tags">
+            <span class="tag">Python (Confident)</span>
+            <span class="tag">C (Beginner)</span>
+            <span class="tag">JavaScript (Beginner)</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h4>Tools &amp; Systems</h4>
+          <div class="tags">
+            <span class="tag">Linux OS</span>
+            <span class="tag">Nmap</span>
+            <span class="tag">CTF Platforms</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card reveal" aria-labelledby="hobbies-heading">
+      <div class="section-head"><span class="tag-prompt">$</span><h3 id="hobbies-heading">Hobbies &amp; Interests</h3></div>
+      <div class="tags">
+        <span class="tag outline">Playing the guitar</span>
+        <span class="tag outline">Going to the gym</span>
+        <span class="tag outline">Exploring advanced mathematics</span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="contact-footer">
+    <div class="footer-inner">
+      <p class="footer-heading"><span class="ckey">$</span> contact --azizkhon</p>
+
+      <div class="contact-grid">
+        <a class="contact-row" href="https://t.me/Gachi_Forever" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 4 3 11.5l6 2.2M21 4 15.5 20l-6.5-6.3M21 4 9 13.7"/>
+          </svg>
+          <span><span class="label">--telegram</span> <span class="value">@Gachi_Forever</span></span>
+        </a>
+
+        <a class="contact-row" href="tel:+998993143603">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/>
+          </svg>
+          <span><span class="label">--phone</span> <span class="value">+998 99 314 36 03</span></span>
+        </a>
+
+        <a class="contact-row" href="mailto:azizkhonzayniddinov@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 5h16v14H4z"/><path d="m4 6 8 7 8-7"/>
+          </svg>
+          <span><span class="label">--email</span> <span class="value">azizkhonzayniddinov@gmail.com</span></span>
+        </a>
+      </div>
+
+      <p class="copyright">© 2026 Zayniddinov Azizkhon. Built with care.</p>
+    </div>
+  </footer>
+
+  <!-- IELTS certificate modal -->
+  <div class="modal-overlay" id="ielts-modal">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="ielts-modal-title">
+      <button class="modal-close" id="ielts-close" aria-label="Close certificate">&times;</button>
+      <h3 id="ielts-modal-title">IELTS Certificate</h3>
+      <p class="modal-sub">Overall Band Score: 7.5</p>
+
+      <img
+        id="certificate-img"
+        class="certificate-img"
+        src="path/to/ielts-certificate.jpg"
+        alt="IELTS certificate scan, Overall Band 7.5">
+
+      <div class="certificate-fallback" id="certificate-fallback" hidden>
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 9h10M7 13h6"/><circle cx="12" cy="21" r="1.4" fill="currentColor" stroke="none"/>
+        </svg>
+        <p>Certificate image not found yet.<br>Replace <code>path/to/ielts-certificate.jpg</code> with your scanned certificate file.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ---------------------------------------------------------
+    // 1. Typing effect for the hero terminal line
+    // ---------------------------------------------------------
+    (function typeName(){
+      var target = document.getElementById('typed-name');
+      var fullText = 'Zayniddinov Azizkhon';
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (reduceMotion) {
+        target.textContent = fullText;
+        return;
+      }
+
+      var i = 0;
+      function step(){
+        target.textContent = fullText.slice(0, i);
+        i++;
+        if (i <= fullText.length) setTimeout(step, 70);
+      }
+      step();
+    })();
+
+    // ---------------------------------------------------------
+    // 2. Reveal sections as they scroll into view
+    // ---------------------------------------------------------
+    (function setupReveal(){
+      var items = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function(el){ el.classList.add('visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      items.forEach(function(el){ observer.observe(el); });
+    })();
+
+    // ---------------------------------------------------------
+    // 3. IELTS certificate modal
+    // ---------------------------------------------------------
+    (function setupIeltsModal(){
+      var trigger   = document.getElementById('ielts-trigger');
+      var overlay   = document.getElementById('ielts-modal');
+      var closeBtn  = document.getElementById('ielts-close');
+      var certImg   = document.getElementById('certificate-img');
+      var certFallback = document.getElementById('certificate-fallback');
+      var lastFocused = null;
+
+      function openModal(){
+        lastFocused = document.activeElement;
+        overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+        document.addEventListener('keydown', onKeydown);
+      }
+
+      function closeModal(){
+        overlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', onKeydown);
+        if (lastFocused) lastFocused.focus();
+      }
+
+      function onKeydown(e){
+        if (e.key === 'Escape') closeModal();
+      }
+
+      trigger.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+
+      // click outside the certificate card closes the modal
+      overlay.addEventListener('click', function(e){
+        if (e.target === overlay) closeModal();
+      });
+
+      // friendly fallback if the placeholder image path doesn't resolve
+      certImg.addEventListener('error', function(){
+        certImg.style.display = 'none';
+        certFallback.hidden = false;
+      });
+    })();
+  </script>
 
 </body>
 </html>
